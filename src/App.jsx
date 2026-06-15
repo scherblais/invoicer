@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { isFirebaseConfigured } from './config'
+import { isFirebaseConfigured, isDemo } from './config'
 import { useAuth } from './context/AuthContext'
 import { DataProvider } from './context/DataContext'
 import TabBar from './components/TabBar'
@@ -39,6 +40,7 @@ export default function App() {
   return (
     <DataProvider>
       <div className="app">
+        <DemoBanner />
         <Routes>
           <Route path="/" element={<Invoices />} />
           <Route path="/invoice/new" element={<InvoiceEditor />} />
@@ -54,5 +56,18 @@ export default function App() {
         {!hideTabs && <TabBar />}
       </div>
     </DataProvider>
+  )
+}
+
+function DemoBanner() {
+  const [show, setShow] = useState(true)
+  if (!isDemo || !show) return null
+  return (
+    <div className="demo-banner">
+      <span>✨ Demo — sample data, nothing is saved</span>
+      <button onClick={() => setShow(false)} aria-label="Dismiss">
+        ✕
+      </button>
+    </div>
   )
 }

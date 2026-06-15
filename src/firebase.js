@@ -5,15 +5,16 @@ import {
   persistentLocalCache,
   persistentMultipleTabManager
 } from 'firebase/firestore'
-import { firebaseConfig, isFirebaseConfigured } from './config'
+import { firebaseConfig, isFirebaseConfigured, isDemo } from './config'
 
-// We only initialise Firebase when configuration is present so the app can
+// We only initialise Firebase when real configuration is present so the app can
 // still render a helpful setup screen if the user hasn't added their keys yet.
+// In demo mode we skip Firebase entirely and use the in-memory backend in db.js.
 let app = null
 let auth = null
 let db = null
 
-if (isFirebaseConfigured) {
+if (isFirebaseConfigured && !isDemo) {
   app = initializeApp(firebaseConfig)
   auth = getAuth(app)
 

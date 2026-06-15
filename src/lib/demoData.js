@@ -43,8 +43,8 @@ export function seedData() {
   ]
 
   const settings = {
-    businessName: 'Lumeria Real Estate Media',
-    businessEmail: 'pascal@lumeriamedia.com',
+    businessName: 'Northlight Real Estate Media',
+    businessEmail: 'studio@northlight.demo',
     businessPhone: '(514) 555-0188',
     businessAddress: 'Montréal, QC',
     baseAddress: 'Montréal, QC, Canada',

@@ -349,7 +349,7 @@ export default function InvoiceEditor() {
                     {formatMoney((Number(it.unitPrice) || 0) * (Number(it.qty) || 0), currency)}
                   </div>
                   <button className="iconbtn" onClick={() => removeItem(it.lid)} aria-label="Remove">
-                    🗑
+                    ×
                   </button>
                 </div>
               </div>
@@ -412,7 +412,7 @@ export default function InvoiceEditor() {
                       onClick={() => autoDistance()}
                       disabled={distBusy}
                     >
-                      {distBusy ? '…' : '📍 Auto'}
+                      {distBusy ? '…' : 'Auto'}
                     </button>
                   </div>
                 )}
@@ -540,7 +540,6 @@ function ItemPicker({ kind, catalog, client, currency, onPick, onClose, onManage
     <Sheet title={`Add ${label}`} onClose={onClose}>
       {items.length === 0 ? (
         <div className="empty" style={{ padding: '20px 0 30px' }}>
-          <span className="emoji">📦</span>
           <h3>No {label}s yet</h3>
           <p>Create one in your catalog first.</p>
           <button className="btn" onClick={onManage}>

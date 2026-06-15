@@ -8,13 +8,19 @@ export default function Clients() {
 
   return (
     <>
-      <AppBar title="Clients" />
+      <AppBar
+        title="Clients"
+        right={
+          <button className="btn ghost sm" onClick={() => navigate('/client/new')}>
+            Add
+          </button>
+        }
+      />
       <div className="content">
         {!ready ? (
           <Spinner />
         ) : clients.length === 0 ? (
           <EmptyState
-            emoji="👥"
             title="No clients yet"
             text="Add clients to set custom prices and travel rates."
             action={
@@ -44,12 +50,6 @@ export default function Clients() {
           </div>
         )}
       </div>
-
-      {ready && clients.length > 0 && (
-        <button className="fab" onClick={() => navigate('/client/new')} aria-label="Add client">
-          +
-        </button>
-      )}
     </>
   )
 }

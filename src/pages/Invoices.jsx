@@ -43,13 +43,19 @@ export default function Invoices() {
 
   return (
     <>
-      <AppBar title="Invoices" />
+      <AppBar
+        title="Invoices"
+        right={
+          <button className="btn ghost sm" onClick={newInvoice} disabled={creating}>
+            {creating ? 'Adding…' : 'New'}
+          </button>
+        }
+      />
       <div className="content">
         {!ready ? (
           <Spinner />
         ) : invoices.length === 0 ? (
           <EmptyState
-            emoji="🧾"
             title="No invoices yet"
             text="Create your first invoice — it saves to the cloud automatically."
             action={
@@ -91,12 +97,6 @@ export default function Invoices() {
           </div>
         )}
       </div>
-
-      {ready && invoices.length > 0 && (
-        <button className="fab" onClick={newInvoice} disabled={creating} aria-label="New invoice">
-          +
-        </button>
-      )}
     </>
   )
 }

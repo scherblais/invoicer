@@ -64,7 +64,7 @@ function DemoBanner() {
   if (!isDemo || !show) return null
   return (
     <div className="demo-banner">
-      <span>✨ Demo — sample data, nothing is saved</span>
+      <span>Demo — sample data, nothing is saved</span>
       <button onClick={() => setShow(false)} aria-label="Dismiss">
         ✕
       </button>

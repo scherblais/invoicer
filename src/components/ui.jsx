@@ -46,10 +46,9 @@ export function MoneyInput({ value, onChange, placeholder = '0.00', ...rest }) {
   )
 }
 
-export function EmptyState({ emoji, title, text, action }) {
+export function EmptyState({ title, text, action }) {
   return (
     <div className="empty">
-      <span className="emoji">{emoji}</span>
       <h3>{title}</h3>
       {text && <p>{text}</p>}
       {action}

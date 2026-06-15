@@ -23,7 +23,14 @@ export default function Catalog() {
 
   return (
     <>
-      <AppBar title="Catalog" />
+      <AppBar
+        title="Catalog"
+        right={
+          <button className="btn ghost sm" onClick={() => setEditing({ kind })}>
+            Add
+          </button>
+        }
+      />
       <div className="content">
         <Segmented value={kind} onChange={setKind} options={KINDS} />
         <div className="spacer" />
@@ -32,7 +39,6 @@ export default function Catalog() {
           <Spinner />
         ) : items.length === 0 ? (
           <EmptyState
-            emoji="📦"
             title={`No ${KIND_SINGULAR[kind]}s yet`}
             text="Add the items you offer and set their prices."
             action={
@@ -56,12 +62,6 @@ export default function Catalog() {
           </div>
         )}
       </div>
-
-      {ready && items.length > 0 && (
-        <button className="fab" onClick={() => setEditing({ kind })} aria-label="Add item">
-          +
-        </button>
-      )}
 
       {editing && (
         <CatalogEditor

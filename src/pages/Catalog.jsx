@@ -25,6 +25,7 @@ export default function Catalog() {
     <>
       <AppBar
         title="Catalog"
+        menu
         right={
           <button className="btn ghost sm" onClick={() => setEditing({ kind })}>
             Add

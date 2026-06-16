@@ -10,6 +10,7 @@ export default function Clients() {
     <>
       <AppBar
         title="Clients"
+        menu
         right={
           <button className="btn ghost sm" onClick={() => navigate('/client/new')}>
             Add

@@ -45,7 +45,7 @@ export default function Settings() {
     return () => cleanup && cleanup()
   }, [form !== null])
 
-  if (!form) return <AppBar title="Settings" />
+  if (!form) return <AppBar title="Settings" menu />
 
   const set = (k) => (v) => {
     setForm((f) => ({ ...f, [k]: v }))
@@ -79,7 +79,7 @@ export default function Settings() {
 
   return (
     <>
-      <AppBar title="Settings" />
+      <AppBar title="Settings" menu />
       <div className="content">
         <div className="section-label">Your business</div>
         <div className="card">

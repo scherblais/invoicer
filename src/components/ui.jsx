@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom'
+import { MenuButton } from './Drawer'
 
-export function AppBar({ title, back, right }) {
+export function AppBar({ title, back, right, menu }) {
   const navigate = useNavigate()
   return (
     <header className="appbar">
+      {menu && <MenuButton />}
       {back && (
         <button
           className="back"

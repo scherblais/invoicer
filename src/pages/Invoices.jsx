@@ -45,6 +45,7 @@ export default function Invoices() {
     <>
       <AppBar
         title="Invoices"
+        menu
         right={
           <button className="btn ghost sm" onClick={newInvoice} disabled={creating}>
             {creating ? 'Adding…' : 'New'}
